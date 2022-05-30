@@ -95,13 +95,25 @@ int main(int carc, const char** argv)
 	//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	GLFWwindow* window = glfwCreateWindow(800, 480, "OpenGL", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
-
+	
+	// replaced glew with glad
+        GLenum glew_status = gladLoadGL(); 
+	
+	/* or Check if GLAD is ok after valid context */
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	{
+    	cout << "Failed to initialize GLAD" << endl;
+    	return -1;
+	}
+	
+	/*
 	GLenum glew_status = glewInit();
 	if (glew_status != GLEW_OK)
 	{
 		printf("Error: %s\n", glewGetErrorString(glew_status));
 		return EXIT_FAILURE;
 	}
+	*/
 
 	dc = GetDC(glfwGetWin32Window(window));
 	//dc = GetDC(NULL);
