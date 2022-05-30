@@ -20,7 +20,10 @@
 #include "openxr/openxr_platform.h"
 
 
-#include <GL/glew.h>
+//#include <GL/glew.h>
+// note: replacing glew with glad
+#include <glad.h>
+
 #include <GLFW/glfw3.h>
 #define GLFW_EXPOSE_NATIVE_WIN32 1
 #define GLFW_EXPOSE_NATIVE_WGL 1
